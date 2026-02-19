@@ -1,0 +1,29 @@
+Source: hash-calculator
+Section: utils
+Priority: optional
+Maintainer: bI8d0 <bI8d0@protonmail.com>
+Homepage: https://github.com/bI8d0/hash-calculator
+Vcs-Git: https://github.com/bI8d0/hash-calculator.git
+Vcs-Browser: https://github.com/bI8d0/hash-calculator
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), golang-go (>= 1.21)
+Rules-Requires-Root: no
+
+Package: hash-calculator
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: File integrity verification tool using MD5, SHA1 and SHA256 hashes
+ This tool calculates and verifies the integrity of files using multiple
+ cryptographic hash algorithms (MD5, SHA1, and SHA256).
+ .
+ Features:
+  * Calculate MD5, SHA1, and SHA256 hashes
+  * Verify file integrity against provided hashes
+  * Interactive hash comparison
+  * Support for files with spaces in names
+  * Cross-platform support (Windows and Linux)
+ .
+ Usage:
+  hash -f <file_path>
+  After calculating hashes, you can optionally enter a hash value for verification.
+

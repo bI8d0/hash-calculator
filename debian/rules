@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+export GOFLAGS = -mod=readonly -v
+
+%:
+	dh $@ --buildsystem=golang --with=golang
+
+override_dh_auto_build:
+	dh_auto_build -- -ldflags="-w -s"
+
+override_dh_auto_install:
+	dh_auto_install --destdir=debian/hash-calculator
+
+override_dh_strip:
+	# Strip is already done in build with -s flag
