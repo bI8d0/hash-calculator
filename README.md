@@ -90,7 +90,7 @@ hash-calculator -f "file.exe"
     ╔═══════════════════════════════╗
     ║        HASH CALCULATOR        ║
     ║  File Integrity Verification  ║
-    ║           by bI8d0            ║
+    ║         by bI8d0 vx.x         ║
     ╚═══════════════════════════════╝
 
 Calculating hashes...
