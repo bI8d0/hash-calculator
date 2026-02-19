@@ -218,6 +218,7 @@ hash-calculator/
 ├── go.mod              # Dependencies (no external dependencies)
 ├── go.sum              # Checksums (empty)
 ├── README.md           # This file
+├── LICENSE             # This file
 ├── debian/             # Debian packaging files
 │   ├── changelog
 │   ├── compat
