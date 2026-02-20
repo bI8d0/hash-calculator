@@ -133,24 +133,25 @@ func main() {
 	printLogo()
 
 	// Define command-line arguments
-	filePath := flag.String("f", "", "Full path of the file")
-	showHelp := flag.Bool("h", false, "Show help")
+	filePath := flag.String("f", "", "Full path of the file to calculate hashes")
+	showHelp := flag.Bool("h", false, "Show help message")
 
+	// Parse command-line arguments
 	flag.Parse()
 
-	// If help is requested, show it
+	// If help is requested, show usage guide and exit
 	if *showHelp {
 		printUsage()
 		os.Exit(0)
 	}
 
-	// Validate that arguments were provided
+	// Validate that file path argument was provided
 	if *filePath == "" {
 		printUsage()
 		os.Exit(1)
 	}
 
-	// Verify that the file exists
+	// Check if the file exists before processing
 	if _, err := os.Stat(*filePath); os.IsNotExist(err) {
 		fmt.Printf("\nError: The file '%s' does not exist\n", *filePath)
 		os.Exit(1)
@@ -158,7 +159,7 @@ func main() {
 
 	fmt.Printf("\nCalculating hashes...\n")
 
-	// Calculate the hashes
+	// Calculate hashes for the file using all three algorithms
 	md5Hash, sha1Hash, sha256Hash, err := calculateHashes(*filePath)
 	if err != nil {
 		fmt.Printf("\nError calculating hashes: %v\n", err)
@@ -171,7 +172,7 @@ func main() {
 	fmt.Printf("SHA1:   %s\n", sha1Hash)
 	fmt.Printf("SHA256: %s\n\n", sha256Hash)
 
-	// Ask user to enter the hash to verify
+	// Prompt user to enter a hash for verification (optional)
 	fmt.Print("HASH: ")
 	scanner := bufio.NewScanner(os.Stdin)
 	var hashToVerify string
@@ -179,9 +180,9 @@ func main() {
 		hashToVerify = scanner.Text()
 	}
 
-	// If user entered a hash, verify it
+	// If user entered a hash, attempt to verify it against calculated hashes
 	if hashToVerify != "" {
-		// Format hashes: remove whitespace and convert to uppercase
+		// Normalize hashes: remove whitespace and convert to uppercase for comparison
 		hashToVerifyFormatted := strings.ToUpper(strings.TrimSpace(hashToVerify))
 		hashToVerifyFormatted = strings.ReplaceAll(hashToVerifyFormatted, " ", "")
 
@@ -194,6 +195,7 @@ func main() {
 		sha256HashFormatted := strings.ToUpper(strings.TrimSpace(sha256Hash))
 		sha256HashFormatted = strings.ReplaceAll(sha256HashFormatted, " ", "")
 
+		// Compare provided hash with all calculated hashes
 		matches := false
 		matchType := ""
 
@@ -208,6 +210,7 @@ func main() {
 			matchType = "SHA256"
 		}
 
+		// Display verification result
 		if matches {
 			printSuccess("\n✓ VERIFICATION SUCCESSFUL: 🔐 Hash matches %s 🔐", matchType)
 		} else {

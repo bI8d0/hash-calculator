@@ -1,6 +1,6 @@
-hash (1.0.0-1) unstable; urgency=medium
+hash-calculator (1.0.0-1) unstable; urgency=medium
 
-  * Initial release of hash tool
+  * Initial release of Hash Calculator
   * Support for MD5, SHA1, and SHA256 hash algorithms
   * Interactive hash verification
   * Cross-platform support (Windows and Linux)

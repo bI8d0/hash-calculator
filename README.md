@@ -2,16 +2,19 @@
 
 A command-line tool written in Go to calculate and verify file integrity using MD5, SHA1, and SHA256 hashes.
 
-**Author:** bI8d0
+**Author:** bI8d0  
+**Version:** 1.0  
+**License:** See LICENSE file
 
 ## 📋 Features
 
-- ✅ Simultaneous calculation of **MD5**, **SHA1**, and **SHA256**
-- ✅ Automatic hash verification provided by the user
-- ✅ User-friendly interface with ANSI color codes
-- ✅ Automatic hash validation and formatting
-- ✅ Compatible with Windows and Linux
-- ✅ No external dependencies (only Go standard library)
+- ✅ Simultaneous calculation of **MD5**, **SHA1**, and **SHA256** hashes
+- ✅ Automatic hash verification
+- ✅ User-friendly interactive interface with ANSI color codes
+- ✅ Hash validation and formatting
+- ✅ Cross-platform support (Windows and Linux)
+- ✅ No external dependencies (Go standard library only)
+- ✅ Optimized binary builds with reduced file size
 
 ## 🚀 Quick Start
 
@@ -21,6 +24,15 @@ A command-line tool written in Go to calculate and verify file integrity using M
 - Operating System: Windows or Linux
 
 ### Installation
+
+#### Option 1: Download Pre-built Binaries
+
+Visit the [Releases](https://github.com/bI8d0/hash-calculator/releases) page to download:
+- `hash-calculator-windows-amd64.zip` for Windows
+- `hash-calculator-linux-amd64.zip` for Linux
+- `hash-calculator.deb` package for Debian/Ubuntu systems
+
+#### Option 2: Build from Source
 
 1. **Clone the repository:**
 ```bash
@@ -56,6 +68,33 @@ GOOS=linux GOARCH=amd64 go build -ldflags="-s -w" -trimpath -o build/hash-calcul
 **For macOS:**
 ```bash
 GOOS=darwin GOARCH=amd64 go build -ldflags="-s -w" -trimpath -o build/hash-calculator main.go
+```
+
+### Building on Linux (Creating .deb Package)
+
+#### Prerequisites:
+```bash
+sudo apt-get update
+sudo apt-get install build-essential devscripts debhelper dh-golang golang-go
+```
+
+#### Build the .deb package:
+```bash
+git clone https://github.com/bI8d0/hash-calculator.git
+cd hash-calculator
+dpkg-buildpackage -us -uc
+```
+
+The `.deb` package will be created in the parent directory.
+
+#### Install the package:
+```bash
+sudo dpkg -i hash-calculator_1.0_amd64.deb
+```
+
+#### Verify installation:
+```bash
+hash-calculator -h
 ```
 
 ## 💻 Usage
@@ -218,7 +257,7 @@ hash-calculator/
 ├── go.mod              # Dependencies (no external dependencies)
 ├── go.sum              # Checksums (empty)
 ├── README.md           # This file
-├── LICENSE             # This file
+├── LICENSE             # License information
 ├── debian/             # Debian packaging files
 │   ├── changelog
 │   ├── compat
@@ -226,8 +265,7 @@ hash-calculator/
 │   ├── copyright
 │   └── rules
 └── build/              # Compiled binaries
-    ├── hash-calculator
-    └── hash-calculator.exe
+ 
 ```
 
 ## 🛠️ Development
@@ -271,7 +309,7 @@ hash-calculator -f "backup.zip"
 
 ### 3. Detect File Modifications
 ```bash
-hash-calculator -f "file.exe"
+hash-calculator -f "file"
 # Compare with previous hash to detect changes
 ```
 
@@ -290,40 +328,44 @@ hash-calculator -f "file.exe"
 - Native ANSI codes, no external color libraries
 - Robust user input validation
 
+## 📝 Changelog
+
+### Version 1.0 (2026-02-20)
+- Initial release
+- Hash calculation: MD5, SHA1, SHA256
+- Interactive verification
+- Cross-platform support (Windows, Linux, macOS)
+- Debian package support
+
 ## 📄 License
 
-This project is provided as-is. See the `debian/copyright` file for more details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 👨‍💻 Contributions
+## 🐛 Troubleshooting
 
-Contributions are welcome. For major changes:
+### Issue: "File not found"
+- **Solution:** Use the absolute file path. On Windows, use double backslashes or quotes:
+  ```bash
+  hash-calculator -f "file.exe"
+  ```
 
-1. Fork the repository
-2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+### Issue: Permission denied on Linux
+- **Solution:** Add execute permissions:
+  ```bash
+  chmod +x hash-calculator
+  ```
+
+### Issue: ".deb package installation failed"
+- **Solution:** Ensure Go 1.21+ is installed:
+  ```bash
+  go version
+  ```
 
 ## 📞 Support
 
-If you encounter issues:
-
-1. Verify that Go 1.24+ is installed: `go version`
-2. Make sure the file exists and is accessible
-3. On Windows, use quoted paths if they contain spaces
-4. Check file read permissions
-
-## 🎯 Roadmap
-
-- [ ] Support for more algorithms (SHA512, BLAKE3)
-- [ ] Export results to JSON/CSV
-- [ ] REST API
-- [ ] Graphical interface (GUI)
-- [ ] Batch processing of multiple files
+For issues, questions, or suggestions, please open an [Issue](https://github.com/bI8d0/hash-calculator/issues) on GitHub.
 
 ---
 
-**Last Updated:** February 19, 2026  
-**Version:** 1.0  
-**Status:** Production Ready ✅
+**Made with ❤️ by bI8d0**
 
