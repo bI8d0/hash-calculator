@@ -87,7 +87,7 @@ DESCRIPTION:
   MD5, SHA1 and SHA256.
 
 SYNTAX:
-  hash.exe -f <file_path>
+  hash-calculator[.exe] -f <file_path>
 
 REQUIRED ARGUMENTS:
   -f    Full path of the file to analyze
@@ -99,10 +99,10 @@ OPTIONAL ARGUMENTS:
 
 USAGE EXAMPLES:
   1. Show help:
-     hash.exe -h
+     hash-calculator[.exe] -h
 
   2. Calculate file hashes:
-     hash.exe -f "file_path"
+     hash-calculator[.exe] -f "file_path"
      Then enter the hash in the prompt to verify (optional)
 
 IMPORTANT NOTES:
