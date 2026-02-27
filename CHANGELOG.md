@@ -30,7 +30,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
   - macOS (amd64)
 - Debian package (.deb) for easy Linux installation
 - Comprehensive documentation:
-  - README in English and Spanish
+  - README
   - Build guide for creating .deb packages
   - GitHub setup and contribution guidelines
 - Optimized binary builds with size reduction (~50%)
@@ -129,10 +129,8 @@ No migration needed! This is the initial public release.
 
 For support, visit:
 - [GitHub Issues](https://github.com/bI8d0/hash-calculator/issues)
-- [Discussions](https://github.com/bI8d0/hash-calculator/discussions)
-
 ---
 
-**Last Updated:** 2026-02-20
+**Last Updated:** 2026-02-27
 **Maintained by:** bI8d0
 
