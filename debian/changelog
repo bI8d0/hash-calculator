@@ -7,4 +7,4 @@ hash-calculator (1.0.0-1) unstable; urgency=medium
   * Color-coded output for verification results
   * Automatic hash formatting (uppercase, no whitespace)
 
- -- bI8d0 <bI8d0@protonmail.com>  Wed, 19 Feb 2026 00:00:00 +0000
+ -- bI8d0 <bI8d0@protonmail.com>  Wed, 27 Feb 2026
