@@ -1,4 +1,8 @@
 # Hash Calculator 🔐
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Go Version](https://img.shields.io/badge/Go-1.23-00ADD8?logo=go&logoColor=white)
+![Platform](https://img.shields.io/badge/Platform-Windows%20%7C%20Linux-blue?logo=windows&logoColor=white)
+![Build](https://img.shields.io/badge/Build-Passing-brightgreen)
 
 A command-line tool written in Go to calculate and verify file integrity using MD5, SHA1, and SHA256 hashes.
 
